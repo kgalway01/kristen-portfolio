@@ -1,993 +1,669 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>Kristen Galway – Marketing & B2B Sales</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      --bg: #020617;
-      --bg-soft: #0b1120;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.16);
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --card: #020617;
-      --border: #1f2937;
-      --radius-lg: 20px;
-      --radius-md: 12px;
-      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.8);
-      --transition-fast: 0.18s ease-out;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: "Poppins", sans-serif;
-      background: radial-gradient(circle at top, #1e293b, #020617 60%);
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .app {
-      display: grid;
-      grid-template-columns: 280px minmax(0, 720px);
-      gap: 20px;
-      width: 100%;
-      max-width: 1080px;
-    }
-
-    /* SIDEBAR */
-
-    .sidebar {
-      background: linear-gradient(145deg, #020617, #020617, #020617);
-      border-radius: 24px;
-      padding: 22px 18px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(148, 163, 184, 0.18);
-      position: sticky;
-      top: 20px;
-      height: fit-content;
-    }
-
-    .avatar-box {
-      width: 90px;
-      height: 90px;
-      border-radius: 999px;
-      overflow: hidden;
-      border: 2px solid rgba(148, 163, 184, 0.5);
-      background: #020617;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 10px;
-    }
-
-    .avatar-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .sidebar-name {
-      font-size: 1.3rem;
-      font-weight: 600;
-    }
-
-    .sidebar-title {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-top: 4px;
-    }
-
-    .tag-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 10px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      font-size: 0.7rem;
-      color: #e0f2fe;
-    }
-
-    .tag-pill span {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: #22c55e;
-    }
-
-    .sidebar-section-title {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      margin-top: 18px;
-      margin-bottom: 6px;
-    }
-
-    .sidebar-list {
-      list-style: none;
-      font-size: 0.78rem;
-      display: grid;
-      gap: 8px;
-    }
-
-    .sidebar-list li {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 4px 0;
-      border-bottom: 1px dashed rgba(55, 65, 81, 0.8);
-    }
-
-    .sidebar-list li:last-child {
-      border-bottom: none;
-    }
-
-    .sidebar-label {
-      color: var(--muted);
-    }
-
-    .sidebar-value {
-      text-align: right;
-      color: var(--text);
-    }
-
-    .sidebar-socials {
-      display: flex;
-      gap: 8px;
-      margin-top: 10px;
-    }
-
-    .social-btn {
-      width: 28px;
-      height: 28px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      color: var(--muted);
-      background: rgba(15, 23, 42, 0.9);
-      text-decoration: none;
-      transition: var(--transition-fast);
-    }
-
-    .social-btn:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-      transform: translateY(-1px);
-    }
-
-    .sidebar-cta {
-      margin-top: 16px;
-      width: 100%;
-      border-radius: 999px;
-      border: none;
-      padding: 9px 12px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      cursor: pointer;
-      background: var(--accent-soft);
-      color: #e0f2fe;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      transition: var(--transition-fast);
-    }
-
-    .sidebar-cta:hover {
-      background: rgba(56, 189, 248, 0.25);
-      transform: translateY(-1px);
-    }
-
-    /* MAIN CARD */
-
-    .main-card {
-      background: rgba(15, 23, 42, 0.95);
-      border-radius: 24px;
-      padding: 18px 18px 22px 18px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(148, 163, 184, 0.22);
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      min-height: 520px;
-    }
-
-    /* NAV TABS */
-
-    .nav-tabs {
-      display: flex;
-      gap: 8px;
-      border-bottom: 1px solid rgba(55, 65, 81, 0.9);
-      padding-bottom: 6px;
-    }
-
-    .nav-tab {
-      border: none;
-      background: transparent;
-      color: var(--muted);
-      font-size: 0.8rem;
-      padding: 6px 10px;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: var(--transition-fast);
-    }
-
-    .nav-tab.active {
-      background: var(--accent-soft);
-      color: #e0f2fe;
-    }
-
-    .nav-tab:hover:not(.active)) {
-      background: rgba(15, 23, 42, 0.9);
-      color: var(--text);
-    }
-
-    /* PAGES */
-
-    .page {
-      display: none;
-      animation: fadeIn 0.18s ease-out;
-    }
-
-    .page.active {
-      display: block;
-    }
-
-    .page-title {
-      font-size: 1.1rem;
-      margin-bottom: 4px;
-    }
-
-    .page-subtitle {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    .about-text p {
-      font-size: 0.86rem;
-      color: #d1d5db;
-      line-height: 1.6;
-      margin-bottom: 8px;
-    }
-
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 6px;
-    }
-
-    .chip {
-      font-size: 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      padding: 2px 8px;
-      background: rgba(15, 23, 42, 0.9);
-      color: #cbd5f5;
-    }
-
-    /* MINI CARDS */
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .mini-card {
-      background: var(--card);
-      border-radius: var(--radius-md);
-      padding: 10px 10px 12px 10px;
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      font-size: 0.8rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .mini-card h3 {
-      font-size: 0.82rem;
-      margin-bottom: 4px;
-    }
-
-    .mini-card p {
-      color: var(--muted);
-      line-height: 1.4;
-    }
-
-    .mini-badge {
-      position: absolute;
-      top: 8px;
-      right: 8px;
-      font-size: 0.65rem;
-      background: rgba(56, 189, 248, 0.12);
-      color: #7dd3fc;
-      padding: 2px 6px;
-      border-radius: 999px;
-    }
-
-    /* TIMELINE */
-
-    .timeline {
-      margin-top: 8px;
-      display: grid;
-      gap: 12px;
-      font-size: 0.8rem;
-    }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 10px minmax(0, 1fr);
-      gap: 10px;
-    }
-
-    .timeline-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: var(--accent);
-      margin-top: 4px;
-    }
-
-    .timeline-body h3 {
-      font-size: 0.86rem;
-    }
-
-    .timeline-meta {
-      font-size: 0.7rem;
-      color: var(--muted);
-    }
-
-    .timeline-text {
-      margin-top: 4px;
-      color: #d1d5db;
-      line-height: 1.5;
-    }
-
-    /* SKILLS */
-
-    .skills-grid {
-      margin-top: 10px;
-      display: grid;
-      gap: 8px;
-    }
-
-    .skill-row {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      font-size: 0.78rem;
-    }
-
-    .skill-label {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .skill-bar {
-      height: 6px;
-      border-radius: 999px;
-      background: #020617;
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      overflow: hidden;
-    }
-
-    .skill-fill {
-      height: 100%;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--accent), #22c55e);
-    }
-
-    /* PORTFOLIO */
-
-    .filter-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 12px;
-      margin-top: 4px;
-    }
-
-    .filter-btn {
-      border-radius: 999px;
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      background: transparent;
-      color: var(--muted);
-      font-size: 0.75rem;
-      padding: 4px 9px;
-      cursor: pointer;
-      transition: var(--transition-fast);
-    }
-
-    .filter-btn.active {
-      background: var(--accent-soft);
-      color: #e0f2fe;
-      border-color: rgba(56, 189, 248, 0.7);
-    }
-
-    .filter-btn:hover:not(.active) {
-      background: rgba(15, 23, 42, 0.9);
-      color: var(--text);
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 10px;
-    }
-
-    .project-card {
-      background: var(--card);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      font-size: 0.8rem;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .project-thumb {
-      position: relative;
-      height: 140px;
-      background: #020617;
-      overflow: hidden;
-    }
-
-    .project-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .project-pill {
-      position: absolute;
-      bottom: 8px;
-      left: 8px;
-      background: rgba(15, 23, 42, 0.92);
-      padding: 2px 7px;
-      font-size: 0.68rem;
-      border-radius: 999px;
-      border: 1px solid rgba(55, 65, 81, 0.9);
-    }
-
-    .project-body {
-      padding: 9px 10px 11px 10px;
-      display: grid;
-      gap: 4px;
-    }
-
-    .project-body h3 {
-      font-size: 0.86rem;
-    }
-
-    .project-link {
-      color: var(--accent);
-      font-size: 0.75rem;
-      text-decoration: none;
-    }
-
-    .project-link:hover {
-      text-decoration: underline;
-    }
-
-    /* CONTACT */
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
-      gap: 12px;
-      margin-top: 10px;
-    }
-
-    .contact-text {
-      font-size: 0.82rem;
-      color: #d1d5db;
-      line-height: 1.6;
-    }
-
-    .contact-note {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-top: 6px;
-    }
-
-    .contact-form {
-      display: grid;
-      gap: 8px;
-      font-size: 0.8rem;
-    }
-
-    .field-row {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px;
-    }
-
-    .input,
-    textarea {
-      border-radius: 10px;
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      background: rgba(15, 23, 42, 0.9);
-      color: var(--text);
-      padding: 7px 9px;
-      font-size: 0.8rem;
-      outline: none;
-      resize: vertical;
-      transition: var(--transition-fast);
-    }
-
-    .input:focus,
-    textarea:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.4);
-    }
-
-    .contact-btn {
-      border-radius: 999px;
-      border: none;
-      padding: 8px 12px;
-      font-size: 0.8rem;
-      cursor: pointer;
-      background: var(--accent-soft);
-      color: #e0f2fe;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      transition: var(--transition-fast);
-    }
-
-    .contact-btn:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-
-    .contact-btn:not(:disabled):hover {
-      background: rgba(56, 189, 248, 0.25);
-      transform: translateY(-1px);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(3px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* RESPONSIVE */
-
-    @media (max-width: 900px) {
-      .app {
-        grid-template-columns: minmax(0, 1fr);
-        max-width: 740px;
-      }
-      .sidebar {
-        position: static;
-      }
-    }
-
-    @media (max-width: 640px) {
-      body {
-        padding: 12px;
-      }
-      .main-card {
-        padding: 14px 12px 18px 12px;
-      }
-      .contact-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vCard - Kristen Galway</title>
+
+  <!-- favicon -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!-- custom css -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
 </head>
+
 <body>
 
-  <div class="app">
+  <!-- MAIN -->
+  <main>
 
     <!-- SIDEBAR -->
-    <aside class="sidebar">
-      <div class="avatar-box">
-        <!-- 🔁 STEP LATER: replace avatar.jpg with your real file name -->
-        <img src="avatar.jpg" alt="Portrait of Kristen Galway" />
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <!-- replace my-avatar.png with your own image later -->
+          <img src="./assets/images/my-avatar.png" alt="Kristen Galway" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Kristen Galway">Kristen Galway</h1>
+          <p class="title">Marketing & B2B Sales</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
       </div>
 
-      <h1 class="sidebar-name">Kristen Galway</h1>
-      <p class="sidebar-title">Marketing &amp; B2B Sales</p>
+      <div class="sidebar-info_more">
 
-      <div class="tag-pill">
-        <span></span>
-        Open to work · Remote / NL
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <!-- Email -->
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+              <a href="mailto:kjennagalway@outlook.com" class="contact-link">
+                kjennagalway@outlook.com
+              </a>
+            </div>
+          </li>
+
+          <!-- Phone (optional / placeholder) -->
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+              <span class="contact-link">Available upon request</span>
+            </div>
+          </li>
+
+          <!-- Birthday -->
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Birthday</p>
+              <time datetime="2001-04-23">April 23, 2001</time>
+            </div>
+          </li>
+
+          <!-- Location -->
+          <li class="contact-item">
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+              <address>Torbay, Newfoundland, Canada</address>
+            </div>
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+
+          <li class="social-item">
+            <a href="https://www.linkedin.com/in/kristen-galway-748366279" target="_blank" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+          <!-- add more if you want -->
+          <!--
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+          -->
+
+        </ul>
+
       </div>
 
-      <h2 class="sidebar-section-title">Details</h2>
-      <ul class="sidebar-list">
-        <li>
-          <span class="sidebar-label">Email</span>
-          <span class="sidebar-value">kjennagalway@outlook.com</span>
-        </li>
-        <li>
-          <span class="sidebar-label">Location</span>
-          <span class="sidebar-value">Torbay, NL, Canada</span>
-        </li>
-        <li>
-          <span class="sidebar-label">Education</span>
-          <span class="sidebar-value">B.Comm (Marketing)</span>
-        </li>
-      </ul>
-
-      <h2 class="sidebar-section-title">Social</h2>
-      <div class="sidebar-socials">
-        <a class="social-btn" href="https://www.linkedin.com/in/kristen-galway-748366279" target="_blank">in</a>
-        <a class="social-btn" href="https://github.com/kgalway01" target="_blank">gh</a>
-        <a class="social-btn" href="https://www.canva.com/design/DAGnSYoU8xY/WWUnuI5zN8tqheGxnrfJPg" target="_blank">🎨</a>
-      </div>
-
-      <button class="sidebar-cta" onclick="setActivePage('contact')">
-        <span>Contact me</span>
-      </button>
     </aside>
 
+
     <!-- MAIN CONTENT -->
-    <main class="main-card">
-      <!-- NAV TABS -->
-      <nav class="nav-tabs">
-        <button class="nav-tab active" data-tab="about">About</button>
-        <button class="nav-tab" data-tab="resume">Resume</button>
-        <button class="nav-tab" data-tab="portfolio">Portfolio</button>
-        <button class="nav-tab" data-tab="contact">Contact</button>
+    <div class="main-content">
+
+      <!-- NAVBAR -->
+      <nav class="navbar">
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <button class="navbar-link active" data-nav-link>About</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Resume</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Portfolio</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Blog</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Contact</button>
+          </li>
+
+        </ul>
       </nav>
 
-      <!-- ABOUT PAGE -->
-      <section class="page active" data-page="about">
-        <h2 class="page-title">About me</h2>
-        <p class="page-subtitle">Marketer, B2B sales, and always learning.</p>
 
-        <div class="about-text">
+      <!-- ABOUT -->
+      <article class="about active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title">About me</h2>
+        </header>
+
+        <section class="about-text">
           <p>
-            I’m a marketer and B2B sales professional with a Bachelor of Commerce (Marketing) from Memorial University of Newfoundland.
-            I love turning messy ideas into clear strategies that actually get clicks, calls, and conversions.
+            I’m a marketer and B2B sales professional with a Bachelor of Commerce (Marketing)
+            from Memorial University of Newfoundland. I love turning messy ideas into clear,
+            practical campaigns that actually get clicks, calls, and conversations started.
           </p>
+
           <p>
-            Over the past year, I’ve built outreach campaigns, managed SEO projects, coordinated digital content, and supported account
-            management. I like combining data, curiosity, and real conversations to help businesses grow in a practical way.
+            Over the past year, I’ve worked in marketing and sales roles where I built outreach
+            campaigns, coordinated digital content, supported SEO projects, and helped manage
+            client relationships. I enjoy digging into data, talking to people, and finding
+            down-to-earth ways to help businesses grow without the fluff.
           </p>
-        </div>
+        </section>
 
-        <div class="chip-row">
-          <span class="chip">Digital marketing</span>
-          <span class="chip">SEO</span>
-          <span class="chip">B2B outreach</span>
-          <span class="chip">CRM workflows</span>
-          <span class="chip">Content &amp; copy</span>
-        </div>
+        <!-- What I'm doing -->
+        <section class="service">
+          <h3 class="h3 service-title">What I'm doing</h3>
 
-        <h3 class="sidebar-section-title" style="margin-top: 18px;">What I'm doing</h3>
-        <div class="card-grid">
-          <article class="mini-card">
-            <div class="mini-badge">SEO</div>
-            <h3>Digital marketing &amp; SEO</h3>
-            <p>Planning campaigns, on-page and off-page SEO, and tracking performance over time.</p>
-          </article>
+          <ul class="service-list">
 
-          <article class="mini-card">
-            <div class="mini-badge">Content</div>
-            <h3>Content &amp; social media</h3>
-            <p>Writing blogs, landing pages, and social posts that support brand voice and goals.</p>
-          </article>
+            <!-- Graphic design -->
+            <li class="service-item">
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-design.svg" alt="graphic design icon" width="40">
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Graphic design</h4>
+                <p class="service-item-text">
+                  Social posts, one-pagers, and simple brand assets in Canva that are clean,
+                  on-brand, and easy for teams to reuse.
+                </p>
+              </div>
+            </li>
 
-          <article class="mini-card">
-            <div class="mini-badge">B2B</div>
-            <h3>B2B sales &amp; outreach</h3>
-            <p>Prospecting, building lead lists, cold calling, and structured CRM-based follow-up.</p>
-          </article>
+            <!-- Sales pitch & outreach -->
+            <li class="service-item">
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-dev.svg" alt="sales pitch icon" width="40">
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Sales pitch & outreach</h4>
+                <p class="service-item-text">
+                  Clear, human outreach scripts and sales pitches for B2B that focus on value,
+                  objections, and next steps.
+                </p>
+              </div>
+            </li>
 
-          <article class="mini-card">
-            <div class="mini-badge">Data</div>
-            <h3>Analytics &amp; reporting</h3>
-            <p>Using Google Analytics, HubSpot, and Excel to turn numbers into next steps.</p>
-          </article>
-        </div>
-      </section>
+            <!-- AI marketing campaigns -->
+            <li class="service-item">
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-app.svg" alt="AI marketing icon" width="40">
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">AI marketing campaigns</h4>
+                <p class="service-item-text">
+                  Using AI tools to brainstorm ideas, draft copy, and structure campaigns while
+                  keeping everything on-brand and strategic.
+                </p>
+              </div>
+            </li>
 
-      <!-- RESUME PAGE -->
-      <section class="page" data-page="resume">
-        <h2 class="page-title">Resume</h2>
-        <p class="page-subtitle">Education, experience, and skills at a glance.</p>
+            <!-- Spreadsheets & tracking -->
+            <li class="service-item">
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-photo.svg" alt="spreadsheet icon" width="40">
+              </div>
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Spreadsheets & dashboards</h4>
+                <p class="service-item-text">
+                  Organized spreadsheets for leads, campaigns, and performance so it’s easy to
+                  see what’s working and what isn’t.
+                </p>
+              </div>
+            </li>
 
-        <h3 class="sidebar-section-title" style="margin-top: 4px;">Education</h3>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-body">
-              <h3>B.Comm (Marketing Concentration)</h3>
-              <div class="timeline-meta">Memorial University of Newfoundland · 2019–2025</div>
+          </ul>
+        </section>
+
+        <!-- Testimonials & clients removed on purpose -->
+
+      </article>
+
+
+      <!-- RESUME -->
+      <article class="resume" data-page="resume">
+
+        <header>
+          <h2 class="h2 article-title">Resume</h2>
+        </header>
+
+        <!-- Education -->
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Education</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">
+                Bachelor of Commerce (Marketing), Memorial University of Newfoundland
+              </h4>
+              <span>2019 — 2025</span>
               <p class="timeline-text">
-                Coursework in digital marketing, consumer behaviour, business intelligence, organizational behaviour, and analytics.
-                Includes over one year of full-time co-op experience in marketing and sales.
+                Marketing concentration with coursework in digital marketing, consumer behaviour,
+                data analytics, and business intelligence. Completed over a year of co-op experience
+                in marketing and sales.
               </p>
-            </div>
-          </div>
+            </li>
 
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-body">
-              <h3>Certificate in Criminology</h3>
-              <div class="timeline-meta">Memorial University of Newfoundland · 2021–Present</div>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">
+                Certificate in Criminology, Memorial University of Newfoundland
+              </h4>
+              <span>2021 — Present</span>
               <p class="timeline-text">
-                Interdisciplinary focus on justice systems, human behaviour, and social policy with strong research and writing skills.
+                Interdisciplinary focus on justice systems, human behaviour, and social policy,
+                strengthening research, critical thinking, and writing skills.
               </p>
-            </div>
-          </div>
-        </div>
+            </li>
 
-        <h3 class="sidebar-section-title" style="margin-top: 16px;">Experience</h3>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-body">
-              <h3>Sales &amp; Marketing Coordinator</h3>
-              <div class="timeline-meta">Supplement King · 2024–2025</div>
+          </ol>
+        </section>
+
+        <!-- Experience (generic, no Matrix mentioned) -->
+        <section class="timeline">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="briefcase-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Experience</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Marketing & Sales Co-op</h4>
+              <span>2024 — 2025</span>
               <p class="timeline-text">
-                Led B2B outreach to gyms and wellness businesses, built prospect lists, managed follow-ups, booked discovery calls,
-                and supported CRM-style tracking workflows while consistently exceeding lead generation goals.
+                Supported B2B outreach and campaign coordination, built prospect lists,
+                drafted email and phone scripts, and tracked responses in spreadsheets and CRM-style
+                systems to move leads through the pipeline.
               </p>
-            </div>
-          </div>
+            </li>
 
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-body">
-              <h3>Account Management &amp; Sales</h3>
-              <div class="timeline-meta">Matrix Transportation Solutions · 2024</div>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Digital Marketing Assistant</h4>
+              <span>2023 — 2024</span>
               <p class="timeline-text">
-                Identified shippers’ needs, performed cold outreach, qualified leads, and coordinated quotes between carriers and clients.
-                Developed scripts and objection-handling notes to support sales performance.
+                Helped plan and publish digital content, assisted with SEO tasks like keyword
+                research and on-page updates, and created Canva graphics for campaigns and
+                internal projects.
               </p>
-            </div>
-          </div>
+            </li>
 
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-body">
-              <h3>Marketing &amp; Communications Assistant</h3>
-              <div class="timeline-meta">Faculty of Business Administration · 2023–2024</div>
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Customer Service & Retail Roles</h4>
+              <span>2018 — 2023</span>
               <p class="timeline-text">
-                Created digital content using Canva, updated web copy, supported event promotion, and maintained consistent messaging
-                across web and social channels.
+                Built strong communication skills, handled customer questions and issues,
+                and learned how to stay calm, organized, and detail-focused in busy environments.
               </p>
-            </div>
+            </li>
+
+          </ol>
+        </section>
+
+        <!-- Skills -->
+        <section class="skill">
+          <h3 class="h3 skills-title">My skills</h3>
+
+          <ul class="skills-list content-card">
+
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Marketing strategy & campaigns</h5>
+                <data value="85">85%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 85%;"></div>
+              </div>
+            </li>
+
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">SEO & content</h5>
+                <data value="80">80%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 80%;"></div>
+              </div>
+            </li>
+
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Sales outreach & pitches</h5>
+                <data value="85">85%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 85%;"></div>
+              </div>
+            </li>
+
+            <li class="skills-item">
+              <div class="title-wrapper">
+                <h5 class="h5">Spreadsheets & reporting</h5>
+                <data value="75">75%</data>
+              </div>
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 75%;"></div>
+              </div>
+            </li>
+
+          </ul>
+        </section>
+
+      </article>
+
+
+      <!-- PORTFOLIO -->
+      <article class="portfolio" data-page="portfolio">
+
+        <header>
+          <h2 class="h2 article-title">Portfolio</h2>
+        </header>
+
+        <section class="projects">
+
+          <!-- Filter buttons -->
+          <ul class="filter-list">
+
+            <li class="filter-item">
+              <button class="active" data-filter-btn>All</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Graphic designs</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Sales pitch examples</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>AI marketing campaign</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Spreadsheets</button>
+            </li>
+
+          </ul>
+
+          <!-- Dropdown filter (mobile) -->
+          <div class="filter-select-box">
+            <button class="filter-select" data-select>
+              <div class="select-value" data-selecct-value>Select category</div>
+              <div class="select-icon">
+                <ion-icon name="chevron-down"></ion-icon>
+              </div>
+            </button>
+
+            <ul class="select-list">
+              <li class="select-item">
+                <button data-select-item>All</button>
+              </li>
+              <li class="select-item">
+                <button data-select-item>Graphic designs</button>
+              </li>
+              <li class="select-item">
+                <button data-select-item>Sales pitch examples</button>
+              </li>
+              <li class="select-item">
+                <button data-select-item>AI marketing campaign</button>
+              </li>
+              <li class="select-item">
+                <button data-select-item>Spreadsheets</button>
+              </li>
+            </ul>
           </div>
-        </div>
 
-        <h3 class="sidebar-section-title" style="margin-top: 16px;">Skills</h3>
-        <div class="skills-grid">
-          <div class="skill-row">
-            <div class="skill-label">
-              <span>SEO &amp; content strategy</span>
-              <span>85%</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-fill" style="width: 85%"></div>
-            </div>
-          </div>
+          <!-- Project cards -->
+          <ul class="project-list">
 
-          <div class="skill-row">
-            <div class="skill-label">
-              <span>Social media &amp; copywriting</span>
-              <span>80%</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-fill" style="width: 80%"></div>
-            </div>
-          </div>
-
-          <div class="skill-row">
-            <div class="skill-label">
-              <span>B2B sales &amp; prospecting</span>
-              <span>85%</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-fill" style="width: 85%"></div>
-            </div>
-          </div>
-
-          <div class="skill-row">
-            <div class="skill-label">
-              <span>CRM &amp; analytics (HubSpot, Excel, GA)</span>
-              <span>75%</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-fill" style="width: 75%"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PORTFOLIO PAGE -->
-      <section class="page" data-page="portfolio">
-        <h2 class="page-title">Portfolio</h2>
-        <p class="page-subtitle">Some of the work featured in my Canva portfolio.</p>
-
-        <div class="filter-row">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="marketing">Marketing</button>
-          <button class="filter-btn" data-filter="content">Content</button>
-        </div>
-
-        <div class="project-grid">
-          <!-- PROJECT 1: Ecosocks -->
-          <article class="project-card" data-category="marketing">
-            <div class="project-thumb">
-              <!-- 🔁 replace ecosocks.jpg with your own thumbnail -->
-              <img src="ecosocks.jpg" alt="Ecosocks AI marketing campaign" />
-              <div class="project-pill">Marketing</div>
-            </div>
-            <div class="project-body">
-              <h3>Ecosocks – AI-Powered Campaign</h3>
-              <p>
-                AI-assisted research, keyword planning, and campaign structure for a sustainable socks brand.
-              </p>
-              <a class="project-link" href="https://github.com/kgalway01/ecosocks-ai-campaign" target="_blank">
-                View GitHub simulation →
+            <!-- Graphic designs -->
+            <li class="project-item active" data-filter-item data-category="graphic designs">
+              <a href="#" target="_blank">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <!-- replace with your image -->
+                  <img src="./assets/images/graphic-1.jpg" alt="Social media graphic set" loading="lazy">
+                </figure>
+                <h3 class="project-title">Social Media Graphic Set</h3>
+                <p class="project-category">Graphic designs</p>
               </a>
-            </div>
-          </article>
+            </li>
 
-          <!-- PROJECT 2: SEO / Writing samples -->
-          <article class="project-card" data-category="marketing">
-            <div class="project-thumb">
-              <img src="seo-samples.jpg" alt="SEO and content samples" />
-              <div class="project-pill">Marketing</div>
-            </div>
-            <div class="project-body">
-              <h3>SEO Writing & On-Page Optimization</h3>
-              <p>
-                Keyword research, outlines, and example content focused on ranking and readability.
-              </p>
-              <a class="project-link" href="#" target="_blank">
-                Add link to SEO samples →
+            <li class="project-item active" data-filter-item data-category="graphic designs">
+              <a href="#" target="_blank">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="./assets/images/graphic-2.jpg" alt="Campaign one-pager" loading="lazy">
+                </figure>
+                <h3 class="project-title">Campaign One-Pager</h3>
+                <p class="project-category">Graphic designs</p>
               </a>
-            </div>
-          </article>
+            </li>
 
-          <!-- PROJECT 3: Canva portfolio -->
-          <article class="project-card" data-category="content">
-            <div class="project-thumb">
-              <img src="canva-portfolio.jpg" alt="Canva marketing design set" />
-              <div class="project-pill">Content</div>
-            </div>
-            <div class="project-body">
-              <h3>Canva Marketing & Social Design Set</h3>
-              <p>
-                A selection of social posts, simple brand assets, and campaign visuals designed in Canva.
-              </p>
-              <a class="project-link"
-                 href="https://www.canva.com/design/DAGnSYoU8xY/WWUnuI5zN8tqheGxnrfJPg"
-                 target="_blank">
-                View full Canva portfolio →
+            <!-- Sales pitch examples -->
+            <li class="project-item active" data-filter-item data-category="sales pitch examples">
+              <a href="#" target="_blank">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="./assets/images/sales-1.jpg" alt="Sales pitch deck" loading="lazy">
+                </figure>
+                <h3 class="project-title">Sales Pitch Deck</h3>
+                <p class="project-category">Sales pitch examples</p>
               </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="sales pitch examples">
+              <a href="#" target="_blank">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="./assets/images/sales-2.jpg" alt="Cold outreach script" loading="lazy">
+                </figure>
+                <h3 class="project-title">Cold Outreach Script Example</h3>
+                <p class="project-category">Sales pitch examples</p>
+              </a>
+            </li>
+
+            <!-- AI marketing campaign -->
+            <li class="project-item active" data-filter-item data-category="ai marketing campaign">
+              <a href="#" target="_blank">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="./assets/images/ai-campaign-1.jpg" alt="AI-assisted marketing campaign" loading="lazy">
+                </figure>
+                <h3 class="project-title">AI-Assisted Marketing Campaign</h3>
+                <p class="project-category">AI marketing campaign</p>
+              </a>
+            </li>
+
+            <!-- Spreadsheets -->
+            <li class="project-item active" data-filter-item data-category="spreadsheets">
+              <a href="#" target="_blank">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="./assets/images/spreadsheet-1.jpg" alt="Lead & campaign tracker" loading="lazy">
+                </figure>
+                <h3 class="project-title">Lead & Campaign Tracker</h3>
+                <p class="project-category">Spreadsheets</p>
+              </a>
+            </li>
+
+            <li class="project-item active" data-filter-item data-category="spreadsheets">
+              <a href="#" target="_blank">
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                  <img src="./assets/images/spreadsheet-2.jpg" alt="Performance dashboard" loading="lazy">
+                </figure>
+                <h3 class="project-title">Performance Dashboard</h3>
+                <p class="project-category">Spreadsheets</p>
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+      <!-- BLOG (you can update later or leave as-is) -->
+      <article class="blog" data-page="blog">
+
+        <header>
+          <h2 class="h2 article-title">Blog</h2>
+        </header>
+
+        <section class="blog-posts">
+
+          <ul class="blog-posts-list">
+
+            <li class="blog-post-item">
+              <a href="#">
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-1.jpg" alt="Campaign breakdown" loading="lazy">
+                </figure>
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    <p class="blog-category">Marketing</p>
+                    <span class="dot"></span>
+                    <time datetime="2025-01-01">2025</time>
+                  </div>
+                  <h3 class="h3 blog-item-title">Campaign breakdown</h3>
+                  <p class="blog-text">
+                    A simple breakdown of how I plan and structure a small digital campaign from idea to launch.
+                  </p>
+                </div>
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="#">
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/blog-2.jpg" alt="Using AI in marketing" loading="lazy">
+                </figure>
+                <div class="blog-content">
+                  <div class="blog-meta">
+                    <p class="blog-category">AI & marketing</p>
+                    <span class="dot"></span>
+                    <time datetime="2025-01-02">2025</time>
+                  </div>
+                  <h3 class="h3 blog-item-title">Using AI without losing your voice</h3>
+                  <p class="blog-text">
+                    Notes on how I use AI tools to speed up work while still sounding human and on-brand.
+                  </p>
+                </div>
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+      <!-- CONTACT -->
+      <article class="contact" data-page="contact">
+
+        <header>
+          <h2 class="h2 article-title">Contact</h2>
+        </header>
+
+        <!-- Map (you can replace src with your own Torbay embed later) -->
+        <section class="mapbox" data-mapbox>
+          <figure>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199666.5651251294!2d-121.58334177520186!3d38.56165006739519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1647608789441!5m2!1sen!2sbd"
+              width="400" height="300" loading="lazy"></iframe>
+          </figure>
+        </section>
+
+        <section class="contact-form">
+          <h3 class="h3 form-title">Contact Form</h3>
+
+          <form action="#" class="form" data-form>
+            <div class="input-wrapper">
+              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
             </div>
-          </article>
-        </div>
-      </section>
 
-      <!-- CONTACT PAGE -->
-      <section class="page" data-page="contact">
-        <h2 class="page-title">Contact</h2>
-        <p class="page-subtitle">
-          Let’s talk about marketing roles, freelance projects, or collaborations.
-        </p>
+            <textarea name="message" class="form-input" placeholder="Your Message" required
+              data-form-input></textarea>
 
-        <div class="contact-grid">
-          <div>
-            <p class="contact-text">
-              I’m open to roles in digital marketing, SEO, B2B sales, and marketing coordination. I’m based in Newfoundland
-              and open to remote or hybrid work across Canada.
-            </p>
-            <p class="contact-note">
-              You can reach me directly at <strong>kjennagalway@outlook.com</strong>, or use the form to send a message.
-            </p>
-          </div>
-
-          <form class="contact-form" id="contactForm">
-            <div class="field-row">
-              <input class="input" type="text" name="name" placeholder="Full name" required />
-              <input class="input" type="email" name="email" placeholder="Email address" required />
-            </div>
-            <textarea class="input" name="message" rows="4" placeholder="Your message" required></textarea>
-            <button class="contact-btn" type="submit" disabled>
-              <span>Send message</span>
+            <button class="form-btn" type="submit" disabled data-form-btn>
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>Send Message</span>
             </button>
           </form>
-        </div>
-      </section>
-    </main>
-  </div>
+        </section>
 
-  <script>
-    // TAB SWITCHING
-    const tabs = document.querySelectorAll(".nav-tab");
-    const pages = document.querySelectorAll(".page");
+      </article>
 
-    function setActivePage(pageName) {
-      tabs.forEach((t) => {
-        t.classList.toggle("active", t.getAttribute("data-tab") === pageName);
-      });
-      pages.forEach((p) => {
-        p.classList.toggle("active", p.getAttribute("data-page") === pageName);
-      });
-    }
+    </div>
 
-    tabs.forEach((tab) => {
-      tab.addEventListener("click", () => {
-        const target = tab.getAttribute("data-tab");
-        setActivePage(target);
-      });
-    });
+  </main>
 
-    // PORTFOLIO FILTER
-    const filterButtons = document.querySelectorAll(".filter-btn");
-    const projectCards = document.querySelectorAll(".project-card");
+  <!-- custom js -->
+  <script src="./assets/js/script.js"></script>
 
-    filterButtons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const filter = btn.getAttribute("data-filter");
+  <!-- ionicons -->
+  <script type="module"
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-        filterButtons.forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
-
-        projectCards.forEach((card) => {
-          const category = card.getAttribute("data-category");
-          if (filter === "all" || category === filter) {
-            card.style.display = "flex";
-          } else {
-            card.style.display = "none";
-          }
-        });
-      });
-    });
-
-    // CONTACT FORM BUTTON ENABLE/DISABLE
-    const contactForm = document.getElementById("contactForm");
-    const contactInputs = contactForm.querySelectorAll("input, textarea");
-    const submitBtn = contactForm.querySelector("button[type='submit']");
-
-    function updateSubmitState() {
-      let allFilled = true;
-      contactInputs.forEach((field) => {
-        if (!field.value.trim()) allFilled = false;
-      });
-      submitBtn.disabled = !allFilled;
-    }
-
-    contactInputs.forEach((field) => {
-      field.addEventListener("input", updateSubmitState);
-    });
-
-    contactForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      alert("This is a front-end demo only. You can hook this form to a real service later.");
-      contactForm.reset();
-      updateSubmitState();
-    });
-  </script>
 </body>
+
 </html>
